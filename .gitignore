@@ -1,2 +1,5 @@
 # exclude following files types
 *.beam
+
+# elixir settings
+.elixir_ls

@@ -52,10 +52,12 @@ defmodule ListHelperV2 do
     end
 
     defp do_sum(current_sum, []) do
+        IO.inspect(%{ current_sum: current_sum }, label: "do_sum")
         current_sum
     end
 
     defp do_sum(current_sum, [head | tail]) do
+        IO.inspect(%{ current_sum: current_sum, list: [head | tail] }, label: "do_sum")
         do_sum(head + current_sum, tail)
     end
 end
