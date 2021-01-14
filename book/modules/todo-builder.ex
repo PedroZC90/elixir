@@ -43,6 +43,9 @@ defmodule TodoList do
     end
 end
 
+# --------------------------------------------------
+# Example:
+# --------------------------------------------------
 # entries = [
 #     %{ date: ~D[2018-12-19], title: "Dentist" },
 #     %{ date: ~D[2018-12-20], title: "Shopping" },

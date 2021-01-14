@@ -20,5 +20,8 @@ defimpl Collectable, for: TodoList do
     defp into_callback(_todo_list, :halt), do: :ok
 end
 
-todo_list = for entry <- entries, into: TodoList.new(), do: entry
-IO.inspect(todo_list, label: "comprehension")
+# --------------------------------------------------
+# Example:
+# --------------------------------------------------
+# todo_list = for entry <- entries, into: TodoList.new(), do: entry
+# IO.inspect(todo_list, label: "comprehension")

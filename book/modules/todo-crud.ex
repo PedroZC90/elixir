@@ -45,10 +45,13 @@ defmodule TodoList do
         end
 end
 
-todo_list = TodoList.new()
-    |> TodoList.add_entry(%{ date: ~D[2018-12-19], title: "Dentist" })
-    |> TodoList.add_entry(%{ date: ~D[2018-12-20], title: "Shopping" })
-    |> TodoList.add_entry(%{ date: ~D[2018-12-19], title: "Movies" })
+# --------------------------------------------------
+# Example:
+# --------------------------------------------------
+# todo_list = TodoList.new()
+#     |> TodoList.add_entry(%{ date: ~D[2018-12-19], title: "Dentist" })
+#     |> TodoList.add_entry(%{ date: ~D[2018-12-20], title: "Shopping" })
+#     |> TodoList.add_entry(%{ date: ~D[2018-12-19], title: "Movies" })
 
-entries = TodoList.entries(todo_list, ~D[2018-12-19])
-IO.inspect(entries)
+# entries = TodoList.entries(todo_list, ~D[2018-12-19])
+# IO.inspect(entries)

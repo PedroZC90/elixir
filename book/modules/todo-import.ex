@@ -102,5 +102,8 @@ defmodule TodoList.CSVImporter do
     end
 end
 
+# --------------------------------------------------
+# Example:
+# --------------------------------------------------
 # res = TodoList.CSVImporter.import("#{__DIR__}/todos.csv")
 # IO.inspect(res)

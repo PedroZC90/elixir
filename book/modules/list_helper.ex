@@ -85,29 +85,32 @@ defmodule Loop do
     end
 end
 
-IO.puts("Recursion")
-length = Loop.Recursion.list_len([1, 2, 3, 4, 5, 6, 7, 8])
-IO.inspect(length, label: "length")
+# --------------------------------------------------
+# Example:
+# --------------------------------------------------
+# IO.puts("Recursion")
+# length = Loop.Recursion.list_len([1, 2, 3, 4, 5, 6, 7, 8])
+# IO.inspect(length, label: "length")
 
-range = Loop.Recursion.range(0, 10)
-IO.inspect(range, label: "range")
+# range = Loop.Recursion.range(0, 10)
+# IO.inspect(range, label: "range")
 
-range = Loop.Recursion.range(10, 0)
-IO.inspect(range, label: "range")
+# range = Loop.Recursion.range(10, 0)
+# IO.inspect(range, label: "range")
 
-positives = Loop.Recursion.positive([1, -1, 3, -5, 0, -1, 10])
-IO.inspect(positives, label: "positives")
+# positives = Loop.Recursion.positive([1, -1, 3, -5, 0, -1, 10])
+# IO.inspect(positives, label: "positives")
 
-IO.puts("\nTail Recursion")
+# IO.puts("\nTail Recursion")
 
-length = Loop.TailRecursion.list_len([1, 2, 3, 4, 5, 6, 7, 8])
-IO.inspect(length, label: "length")
+# length = Loop.TailRecursion.list_len([1, 2, 3, 4, 5, 6, 7, 8])
+# IO.inspect(length, label: "length")
 
-range = Loop.TailRecursion.range(0, 10)
-IO.inspect(range, label: "range")
+# range = Loop.TailRecursion.range(0, 10)
+# IO.inspect(range, label: "range")
 
-range = Loop.TailRecursion.range(10, 0)
-IO.inspect(range, label: "range")
+# range = Loop.TailRecursion.range(10, 0)
+# IO.inspect(range, label: "range")
 
-positives = Loop.TailRecursion.positive([1, -1, 3, -5, 0, -1, 10])
-IO.inspect(positives, label: "positives")
+# positives = Loop.TailRecursion.positive([1, -1, 3, -5, 0, -1, 10])
+# IO.inspect(positives, label: "positives")
