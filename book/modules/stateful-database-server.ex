@@ -1,5 +1,6 @@
 defmodule DatabaseServer do
-    def start do
+
+    def start() do
         spawn(fn () ->
             connection = :rand.uniform(1000)
             loop(connection)
@@ -10,7 +11,7 @@ defmodule DatabaseServer do
         send(server_pid, { :run_query, self(), query_def })
     end
 
-    def get_result do
+    def get_result() do
         receive do
             { :query_result, result } -> result
         after
@@ -20,10 +21,9 @@ defmodule DatabaseServer do
 
     defp loop(connection) do
         receive do
-            {:run_query, caller, query_def} ->
-                send(caller, {:query_result, run_query(connection, query_def)})
+            { :run_query, pid, query_def } ->
+                send(pid, { :query_result, run_query(connection, query_def) })
         end
-
         loop(connection)
     end
 
