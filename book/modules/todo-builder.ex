@@ -28,13 +28,13 @@ defmodule TodoList do
 
     def update_entry(todo_list, entry_id, updater_fun) do
         case Map.fetch(todo_list.entries, entry_id) do
-        :error ->
-            todo_list
+            :error ->
+                todo_list
 
-        {:ok, old_entry} ->
-            new_entry = updater_fun.(old_entry)
-            new_entries = Map.put(todo_list.entries, new_entry.id, new_entry)
-            %TodoList{todo_list | entries: new_entries}
+            {:ok, old_entry} ->
+                new_entry = updater_fun.(old_entry)
+                new_entries = Map.put(todo_list.entries, new_entry.id, new_entry)
+                %TodoList{todo_list | entries: new_entries}
         end
     end
 
@@ -43,10 +43,10 @@ defmodule TodoList do
     end
 end
 
-entries = [
-    %{ date: ~D[2018-12-19], title: "Dentist" },
-    %{ date: ~D[2018-12-20], title: "Shopping" },
-    %{ date: ~D[2018-12-19], title: "Movies" }
-]
+# entries = [
+#     %{ date: ~D[2018-12-19], title: "Dentist" },
+#     %{ date: ~D[2018-12-20], title: "Shopping" },
+#     %{ date: ~D[2018-12-19], title: "Movies" }
+# ]
 
-todo_list = TodoList.new(entries)
+# todo_list = TodoList.new(entries)
