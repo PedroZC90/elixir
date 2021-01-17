@@ -14,7 +14,7 @@ defmodule KeyValueStore do
     end
 
     def init(_) do
-        { :ok, %{  } }
+        { :ok, %{} }
     end
 
     def handle_cast({ :put, key, value }, state) do
