@@ -6,7 +6,7 @@ defmodule Todo.List do
     end
 
     def size(todo_list) do
-        Map.size(todo_list.entries)
+        Kernel.map_size(todo_list.entries)
     end
 
     def add_entry(todo_list, entry) do
@@ -35,7 +35,7 @@ defmodule Todo.List do
             :error ->
                 todo_list
 
-            { :ok, old_entry } ->
+            {:ok, old_entry} ->
                 new_entry = updater_fun.(old_entry)
                 new_entries = Map.put(todo_list.entries, new_entry.id, new_entry)
                 %Todo.List{ todo_list | entries: new_entries }

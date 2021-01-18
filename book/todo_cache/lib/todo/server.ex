@@ -1,7 +1,7 @@
 defmodule Todo.Server do
     use GenServer
 
-    def start do
+    def start() do
         GenServer.start(__MODULE__, nil)
     end
 
@@ -26,6 +26,7 @@ defmodule Todo.Server do
 
     @impl GenServer
     def handle_call({ :entries, date }, _, todo_list) do
-        { :reply, Todo.List.entries(todo_list, date), todo_list }
+        entries = Todo.List.entries(todo_list, date)
+        { :reply, entries, todo_list }
     end
 end
