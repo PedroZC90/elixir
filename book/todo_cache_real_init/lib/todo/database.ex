@@ -3,8 +3,10 @@ defmodule Todo.Database do
 
     @db_folder "./persist"
 
-    def start do
-        GenServer.start(__MODULE__, nil, name: __MODULE__)
+    def start() do
+        # __MODULE__ store the module name
+        # setting GenServer property :name makes the server a singleton
+        GenServer.start(__MODULE__, nil)
     end
 
     def store(key, data) do
@@ -15,10 +17,21 @@ defmodule Todo.Database do
         GenServer.call(__MODULE__, { :get, key })
     end
 
+    def clear() do
+        File.rm_rf!(@db_folder)
+    end
+
     @impl GenServer
     def init(_) do
-        File.mkdir_p!(@db_folder)
+        send(self(), :real_init)
+        Process.register(self(), __MODULE__)
         { :ok, nil }
+    end
+
+    @impl GenServer
+    def handle_info(:real_init, state) do
+        File.mkdir_p!(@db_folder)
+        { :noreply, state }
     end
 
     @impl GenServer
