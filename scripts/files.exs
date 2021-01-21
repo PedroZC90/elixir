@@ -24,3 +24,19 @@ dirname = File.cwd!()
     |> IO.inspect(label: "cwd")
     |> Path.join("docs")
     |> IO.inspect(label: "dirname")
+
+# SAVE TERMS (LIST, TUPLE, MAP, STRUCTS, etc..) ON A FILE
+term = %{ name: "pedro", age: 30, birth: ~D[1990-06-02], values: [ 1, 2, 3 ] }
+
+filename = "#{__DIR__}/debug.txt"
+
+binary = term
+    |> :erlang.term_to_binary()
+    |> IO.inspect(label: "binary term")
+
+:ok = File.write!(filename, binary)
+
+content = filename
+            |> File.read!()
+            |> :erlang.binary_to_term()
+            |> IO.inspect(label: "file content")
